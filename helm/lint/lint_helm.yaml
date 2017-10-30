@@ -9,9 +9,10 @@ image_resource:
 
 inputs:
 - name: src
+- name: code-src
 
 params: 
-  SEARCH_PATH: "src/my-chart"
+  SEARCH_PATH: "code-src/my-chart"
 
 run:
   path: src/helm/lint/lint_helm.sh

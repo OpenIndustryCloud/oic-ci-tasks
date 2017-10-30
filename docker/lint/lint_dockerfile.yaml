@@ -9,9 +9,10 @@ image_resource:
 
 inputs:
 - name: src
+- name: docker-src
 
 params: 
-  SEARCH_PATH: "repo/docker-images"
+  SEARCH_PATH: "docker-src/repo/docker-images"
 
 run:
   path: src/docker/lint/lint_dockerfile.sh

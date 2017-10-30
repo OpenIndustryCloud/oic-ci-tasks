@@ -9,9 +9,10 @@ image_resource:
 
 inputs:
 - name: src
+- name: code-src
 
 params: 
-  SEARCH_PATH: "repo/python"
+  SEARCH_PATH: "code-src/python"
 
 run:
   path: src/python/lint/lint_python.sh
