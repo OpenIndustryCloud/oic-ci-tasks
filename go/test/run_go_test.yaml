@@ -7,7 +7,9 @@ image_resource:
 
 inputs:
 - name: src
-  path: gopath/src/github.com/repo/src
+
+params: 
+  SEARCH_PATH: "repo/go"
 
 run:
-  path: gopath/src/github.com/repo/src/ci/run_go_test.sh
+  path: src/go/test/run_go_test.sh

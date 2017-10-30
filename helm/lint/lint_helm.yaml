@@ -10,5 +10,8 @@ image_resource:
 inputs:
 - name: src
 
+params: 
+  SEARCH_PATH: "src/my-chart"
+
 run:
-  path: ./app/ci/lint_helm.sh
+  path: src/helm/lint/lint_helm.sh

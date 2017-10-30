@@ -2,10 +2,8 @@
 
 set -e -u -x
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+export GOPATH=$(pwd)/gopath:"${SEARCH_PATH}/../"
 
-export GOPATH=$(pwd)/gopath:"${DIR}/../"
-
-cd "${DIR}/.."
+cd "${SEARCH_PATH}/.."
 
 go test ./...

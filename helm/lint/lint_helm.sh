@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e -u -x
+set -eux
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
-echo $DIR
-/bin/helm lint $(find ${DIR}/../deploy -type d -maxdepth 1 -mindepth 1)
+/bin/helm lint ${SEARCH_PATH:-'.'}

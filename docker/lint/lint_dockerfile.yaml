@@ -11,7 +11,7 @@ inputs:
 - name: src
 
 params: 
-  SEARCH_PATH: "/src/src/docker-images"
+  SEARCH_PATH: "repo/docker-images"
 
 run:
-  path: ./src/ci/docker/lint/lint_dockerfile.sh
+  path: src/docker/lint/lint_dockerfile.sh
