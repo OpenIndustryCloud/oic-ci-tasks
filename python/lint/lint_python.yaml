@@ -9,7 +9,7 @@ image_resource:
 
 inputs:
 - name: src
-# - name: code-src
+- name: code-src
 
 params: 
   SEARCH_PATH: "code-src/python"
