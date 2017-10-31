@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gcr.io/landg-179815/newman-cli
+    tag: 'latest'
+
+inputs:
+- name: task-src
+- name: function-src
+
+params: 
+  ENVIRONMENT: staging
+  FISSION_ROUTER: fissionrouter.default.svc.cluster.local
+  COLLECTION: fission-src/ci/collection.json
+  FUNCTION_NAME: foobar
+  PROTOCOL: http
+  TARGET_PORT: 80
+
+run:
+  path: task-src/api/test/test_function.sh

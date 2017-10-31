@@ -1,0 +1,24 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gcr.io/landg-179815/fission-cli
+    tag: 'latest'
+
+inputs:
+- name: task-src
+- name: function-src
+
+params: 
+  ENVIRONMENT: staging
+  FISSION_URL: http:/fission.default.svc.cluster.local
+  FISSION_ROUTER: fissionrouter.default.svc.cluster.local
+  FUNCTION_ENVIRONMENT: python
+  FUNCTION_NAME: foobar
+  FUNCTION_METHOD: GET
+  CODE_PATH: fission-src/function/function.py
+
+run:
+  path: task-src/api/publish/publish_function.sh
