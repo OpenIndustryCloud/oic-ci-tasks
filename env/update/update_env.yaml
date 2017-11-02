@@ -12,13 +12,11 @@ inputs:
 - name: function-src
 
 params: 
-  ENVIRONMENT: staging
-  FISSION_URL: http:/fission.default.svc.cluster.local
+  FUNCTION_ENVIRONMENT: staging
+  FUNCTION_IMAGE: fission/go-env:latest
+  # BUILDER_IMAGE: fission/go-env:builder
   FISSION_ROUTER: fissionrouter.default.svc.cluster.local
-  FUNCTION_ENVIRONMENT: python
-  FUNCTION_NAME: foobar
-  FUNCTION_METHOD: GET
-  CODE_PATH: fission-src/function/function.py
+  FISSION_URL: python
 
 run:
-  path: task-src/api/publish/publish_function.sh
+  path: task-src/env/update/update_env.sh

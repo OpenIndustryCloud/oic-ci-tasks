@@ -11,11 +11,27 @@
 
 set -eux 
 
-fission function delete --name ${FUNCTION_NAME} --env ${FUNCTION_ENVIRONMENT}
+case "${FUNCTION_ENVIRONMENT}" in 
+	"go" )
+		CODE_ARG="--package"
+	;;
+	* )
+		CODE_ARG="--code"
+	;;
+esac
 
-fission route list | \
-	grep ${FUNCTION_NAME} | \
-	grep ${FUNCTION_METHOD} | \
-	grep /${ENVIRONMENT}/${FUNCTION_NAME} | \
-	awk '{ print $1 }' | \
-	xargs fission route delete --name 
+fission function create \
+	--name ${ENVIRONMENT}-${FUNCTION_NAME} \
+	--env ${FUNCTION_ENVIRONMENT} \
+	${CODE_ARG} "${CODE_PATH}" \
+	|| { 
+		fission function update \
+			--name ${FUNCTION_NAME} \
+			${CODE_ARG} "${CODE_PATH}" 
+	}
+
+fission route create \
+	--method ${FUNCTION_METHOD} \
+	--url /${ENVIRONMENT}/${FUNCTION_NAME} \
+	--function ${ENVIRONMENT}-${FUNCTION_NAME} \
+	|| true
