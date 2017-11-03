@@ -9,8 +9,8 @@
 
 set -eux 
 
-DIR="$(echo ${CODE_PATH} rev | cut -f2- -d'/' | rev)"
-FUNCTION="$(echo ${CODE_PATH} rev | cut -f1 -d'/' | rev)"
+DIR="$(echo ${CODE_PATH} | rev | cut -f2- -d'/' | rev)"
+FUNCTION="$(echo ${CODE_PATH} | rev | cut -f1 -d'/' | rev)"
 
 cd "${DIR}"
 
