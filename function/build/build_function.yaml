@@ -9,7 +9,7 @@ image_resource:
 
 inputs:
 - name: task-src
-- name: build
+- name: function-src
 
 params: 
   FUNCTION_ENVIRONMENT: go
