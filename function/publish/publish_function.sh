@@ -13,7 +13,7 @@ set -eux
 
 case "${FUNCTION_ENVIRONMENT}" in 
 	"go" )
-		CODE_ARG="--package"
+		CODE_ARG="--deploy"
 	;;
 	* )
 		CODE_ARG="--code"
