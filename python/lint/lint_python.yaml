@@ -8,12 +8,12 @@ image_resource:
     tag: 'latest'
 
 inputs:
-- name: src
-- name: code-src
+- name: task-src
+- name: function-src
 
 params: 
-  SEARCH_PATH: "code-src/python"
+  SEARCH_PATH: "function-src/python"
 
 run:
-  path: src/python/lint/lint_python.sh
+  path: task-src/python/lint/lint_python.sh
 
