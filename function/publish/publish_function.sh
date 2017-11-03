@@ -26,7 +26,7 @@ fission function create \
 	${CODE_ARG} "${CODE_PATH}" \
 	|| { 
 		fission function update \
-			--name ${FUNCTION_NAME} \
+			--name ${ENVIRONMENT}-${FUNCTION_NAME} \
 			${CODE_ARG} "${CODE_PATH}" 
 	}
 
