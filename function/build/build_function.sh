@@ -15,6 +15,6 @@ FUNCTION="$(echo ${CODE_PATH} | rev | cut -f1 -d'/' | rev)"
 cd "${DIR}"
 
 go build -buildmode=plugin \
-  -o /built-artifacts/${FUNCTION_NAME}.so \
+  -o built-artifacts/${FUNCTION_NAME}.so \
   "${FUNCTION}"
 
