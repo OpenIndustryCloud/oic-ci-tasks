@@ -1,0 +1,23 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gcr.io/landg-179815/go-builder
+    tag: 'latest'
+
+inputs:
+- name: task-src
+- name: build
+
+params: 
+  FUNCTION_ENVIRONMENT: go
+  FUNCTION_NAME: foobar
+  CODE_PATH: function-src/hello/hello.go
+
+run:
+  path: task-src/function/build/build_function.sh
+
+output: 
+- name: built-artifacts
