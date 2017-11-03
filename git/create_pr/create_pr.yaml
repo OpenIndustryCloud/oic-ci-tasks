@@ -7,6 +7,9 @@ image_resource:
     repository: jtarchie/pr
     tag: test
 
+inputs:
+  - name: task-src
+
 params:
   GITHUB_ACCESS_TOKEN: foobar
   REPO_NAME: samnco/test
