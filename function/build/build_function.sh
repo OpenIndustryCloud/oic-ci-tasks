@@ -9,12 +9,13 @@
 
 set -eux 
 
+CURRENT_DIR="$(pwd)"
 DIR="$(echo ${CODE_PATH} | rev | cut -f2- -d'/' | rev)"
 FUNCTION="$(echo ${CODE_PATH} | rev | cut -f1 -d'/' | rev)"
 
 cd "${DIR}"
 
 go build -buildmode=plugin \
-  -o built-artifacts/${FUNCTION_NAME}.so \
+  -o "${CURRENT_DIR}/built-artifacts/${FUNCTION_NAME}.so" \
   "${FUNCTION}"
 

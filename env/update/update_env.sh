@@ -10,16 +10,7 @@
 
 set -eux 
 
-# case "${FUNCTION_ENVIRONMENT}" in 
-# 	"go" )
-
-# 	;;
-# 	* )
-# 		CODE_ARG="--code"
-# 	;;
-# esac
-
 fission env update \
 	--name ${FUNCTION_ENVIRONMENT} \
-	--image ${FUNCTION_IMAGE} # --biulder ${BUILDER_IMAGE}
+	--image ${FUNCTION_IMAGE} # --builder ${BUILDER_IMAGE}
 
