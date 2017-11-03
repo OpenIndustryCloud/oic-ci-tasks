@@ -19,5 +19,5 @@ params:
 run:
   path: task-src/function/build/build_function.sh
 
-output: 
+outputs: 
 - name: built-artifacts
