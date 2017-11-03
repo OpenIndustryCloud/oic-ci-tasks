@@ -13,7 +13,7 @@ inputs:
 
 params: 
   ENVIRONMENT: staging
-  FISSION_ROUTER: fissionrouter.default.svc.cluster.local
+  FISSION_ROUTER: router.fission.svc.cluster.local
   COLLECTION: fission-src/ci/collection.json
   FUNCTION_NAME: foobar
   PROTOCOL: http
