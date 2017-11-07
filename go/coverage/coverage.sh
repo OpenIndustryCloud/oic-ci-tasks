@@ -23,7 +23,8 @@ profile="${coverdir}/cover.out"
 hash goveralls 2>/dev/null || go get github.com/mattn/goveralls
 hash godir 2>/dev/null || go get github.com/Masterminds/godir
 
-GOPATH="/tmp/go"
+GOPATH="$(pwd)/function"
+cd ${GOPATH}
 
 generate_cover_data() {
   for d in $(godir) ; do
@@ -38,7 +39,7 @@ generate_cover_data() {
 }
 
 push_to_coveralls() {
-  goveralls -coverprofile="${profile}" -repotoken $REPOTOKEN
+  goveralls -coverprofile="${profile}" -repotoken ${REPOTOKEN}
 }
 
 generate_cover_data

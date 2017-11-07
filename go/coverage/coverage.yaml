@@ -10,7 +10,7 @@ platform: linux
 inputs:
 - name: task-src
 - name: function-src
-  path: /tmp/go/src/_/build
+  path: function/src/_/build
 
 params: 
  REPOTOKEN: foobar
