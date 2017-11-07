@@ -4,7 +4,7 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: gcr.io/beta-180508/fission-cli
+    repository: gcr.io/beta-180508/newman-cli
     tag: 'latest'
 
 inputs:
@@ -13,11 +13,11 @@ inputs:
 
 params: 
   ENVIRONMENT: staging
-  FISSION_URL: http:/fission.default.svc.cluster.local
   FISSION_ROUTER: fissionrouter.default.svc.cluster.local
-  FUNCTION_ENVIRONMENT: python
+  COLLECTION: fission-src/ci/collection.json
   FUNCTION_NAME: foobar
-  FUNCTION_METHOD: GET
+  PROTOCOL: http
+  TARGET_PORT: 80
 
 run:
-  path: task-src/function/remove/remove_function.sh
+  path: task-src/api/test/test_function.sh

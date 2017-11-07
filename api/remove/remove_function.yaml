@@ -9,13 +9,15 @@ image_resource:
 
 inputs:
 - name: task-src
+- name: function-src
 
 params: 
-  FUNCTION_ENVIRONMENT: staging
-  FUNCTION_IMAGE: fission/go-env:latest
-  # BUILDER_IMAGE: fission/go-env:builder
+  ENVIRONMENT: staging
+  FISSION_URL: http:/fission.default.svc.cluster.local
   FISSION_ROUTER: fissionrouter.default.svc.cluster.local
-  FISSION_URL: python
+  FUNCTION_ENVIRONMENT: python
+  FUNCTION_NAME: foobar
+  FUNCTION_METHOD: GET
 
 run:
-  path: task-src/env/update/update_env.sh
+  path: task-src/api/remove/remove_function.sh

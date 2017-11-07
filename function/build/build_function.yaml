@@ -4,7 +4,7 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: gcr.io/landg-179815/go-builder
+    repository: gcr.io/beta-180508/go-builder
     tag: 'latest'
 
 inputs:

@@ -6,11 +6,11 @@ image_resource:
   source: {repository: golang, tag: 1.8-alpine}
 
 inputs:
-- name: src
-- name: code-src
+- name: task-src
+- name: function-src
 
 params: 
-  SEARCH_PATH: "code-src/repo/go"
+  SEARCH_PATH: "function-src"
 
 run:
-  path: src/go/test/run_go_test.sh
+  path: task-src/go/test/run_go_test.sh

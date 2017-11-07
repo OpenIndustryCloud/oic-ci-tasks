@@ -18,6 +18,7 @@ params:
   FUNCTION_ENVIRONMENT: python
   FUNCTION_NAME: foobar
   FUNCTION_METHOD: GET
+  CODE_PATH: fission-src/function/function.py
 
 run:
-  path: task-src/function/remove/remove_function.sh
+  path: task-src/api/publish/publish_function.sh
