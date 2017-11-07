@@ -15,7 +15,7 @@ fission env update \
 	--image ${FUNCTION_IMAGE} || \
 	fission env create \
 		--name ${FUNCTION_ENVIRONMENT} \
-		--image ${FUNCTION_IMAGE} || \
+		--image ${FUNCTION_IMAGE}
 
 
 
