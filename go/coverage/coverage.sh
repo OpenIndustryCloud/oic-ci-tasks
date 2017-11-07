@@ -1,17 +1,7 @@
-#!/bin/bash
-
-set -e -u -x
-
-export GOPATH=$(pwd)/gopath:"${SEARCH_PATH}/../"
-
-cd "${SEARCH_PATH}/.."
-
-go test ./...
-
 #!/usr/bin/env bash
 
-# Copyright 2016 The Kubernetes Authors All rights reserved.
-#
+# This script is completely copied and adapted from the Kubernetes coveralls.sh
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -33,6 +23,8 @@ profile="${coverdir}/cover.out"
 hash goveralls 2>/dev/null || go get github.com/mattn/goveralls
 hash godir 2>/dev/null || go get github.com/Masterminds/godir
 
+GOPATH="/tmp/go"
+
 generate_cover_data() {
   for d in $(godir) ; do
     (
@@ -46,7 +38,7 @@ generate_cover_data() {
 }
 
 push_to_coveralls() {
-  goveralls -coverprofile="${profile}" -service=circle-ci
+  goveralls -coverprofile="${profile}" -repotoken $REPOTOKEN
 }
 
 generate_cover_data

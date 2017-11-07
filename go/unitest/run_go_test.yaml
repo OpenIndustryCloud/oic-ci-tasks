@@ -3,7 +3,9 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: golang, tag: 1.8-alpine}
+  source: 
+    repository: gcr.io/beta-180508/go-ci
+    tag: latest
 
 inputs:
 - name: task-src
@@ -13,4 +15,4 @@ params:
   SEARCH_PATH: "function-src"
 
 run:
-  path: task-src/go/test/run_go_test.sh
+  path: task-src/go/unitest/run_go_test.sh
