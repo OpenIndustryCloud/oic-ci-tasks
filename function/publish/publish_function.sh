@@ -34,4 +34,5 @@ fission route create \
 	--method ${FUNCTION_METHOD} \
 	--url /${ENVIRONMENT}/${FUNCTION_NAME} \
 	--function ${ENVIRONMENT}-${FUNCTION_NAME} \
-	|| true
+	|| fission route update \
+	--function ${ENVIRONMENT}-${FUNCTION_NAME}
