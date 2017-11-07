@@ -17,4 +17,4 @@ params:
 
 run:
   path: task-src/go/coverage/coverage.sh
-  args: "--coveralls"
+  args: [ "--coveralls" ]
