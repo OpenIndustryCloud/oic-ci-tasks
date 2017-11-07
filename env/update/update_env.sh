@@ -12,5 +12,10 @@ set -eux
 
 fission env update \
 	--name ${FUNCTION_ENVIRONMENT} \
-	--image ${FUNCTION_IMAGE} # --builder ${BUILDER_IMAGE}
+	--image ${FUNCTION_IMAGE} || \
+	fission env create \
+		--name ${FUNCTION_ENVIRONMENT} \
+		--image ${FUNCTION_IMAGE} || \
+
+
 
