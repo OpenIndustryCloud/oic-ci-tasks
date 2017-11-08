@@ -19,5 +19,6 @@ params:
   PROTOCOL: http
   TARGET_PORT: 80
   FUNCTION_METHOD: GET
+
 run:
   path: task-src/function/test/test_function.sh

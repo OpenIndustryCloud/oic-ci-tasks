@@ -35,7 +35,7 @@ fission route create \
 	--url /${ENVIRONMENT}/${FUNCTION_NAME} \
 	--function ${ENVIRONMENT}-${FUNCTION_NAME} \
 	|| {
-		ROUTE_NAME=$(fission route list | grep ${ENVIRONMENT}-${FUNCTION_NAME} | grep ${FUNCTION_METHOD} | grep "/${ENVIRONMENT}/${FUNCTION_NAME}")
+		ROUTE_NAME=$(fission route list | grep ${ENVIRONMENT}-${FUNCTION_NAME} | grep ${FUNCTION_METHOD} | grep "/${ENVIRONMENT}/${FUNCTION_NAME} | awk '{ print $1 }' ")
 		fission route update \
 			--name ${ROUTE_NAME} \
 			--function ${ENVIRONMENT}-${FUNCTION_NAME}
