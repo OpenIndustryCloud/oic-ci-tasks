@@ -16,6 +16,18 @@
 
 set -euo pipefail
 
+[ -d /var/run/secrets/kubernetes.io/serviceaccount ] || {
+  mkdir -p /var/run/secrets/kubernetes.io/serviceaccount
+}
+
+[ "x${KUBERNETES_CA}" = "x" ] || { 
+  echo ${KUBERNETES_CA} | base64 --decode | tee /var/run/secrets/kubernetes.io/serviceaccount/ca.crt 
+} 
+
+[ "x${KUBERNETES_TOKEN}" = "x" ] || { 
+  echo ${KUBERNETES_TOKEN} | base64 --decode | tee /var/run/secrets/kubernetes.io/serviceaccount/token 
+} 
+
 covermode=${COVERMODE:-atomic}
 coverdir=$(mktemp -d /tmp/coverage.XXXXXXXXXX)
 profile="${coverdir}/cover.out"

@@ -13,7 +13,11 @@ inputs:
   path: function/src/_/build
 
 params: 
- REPOTOKEN: foobar
+  REPOTOKEN: foobar
+  KUBERNETES_SERVICE_PORT: ""
+  KUBERNETES_SERVICE_HOST: ""
+  KUBERNETES_CA: ""
+  KUBERNETES_TOKEN: ""
 
 run:
   path: task-src/go/coverage/coverage.sh
