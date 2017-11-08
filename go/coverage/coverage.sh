@@ -21,11 +21,11 @@ set -euo pipefail
 }
 
 [ "x${KUBERNETES_CA}" = "x" ] || { 
-  echo ${KUBERNETES_CA} | base64 --decode | tee /var/run/secrets/kubernetes.io/serviceaccount/ca.crt 
+  echo ${KUBERNETES_CA} | base64 -d | tee /var/run/secrets/kubernetes.io/serviceaccount/ca.crt 
 } 
 
 [ "x${KUBERNETES_TOKEN}" = "x" ] || { 
-  echo ${KUBERNETES_TOKEN} | base64 --decode | tee /var/run/secrets/kubernetes.io/serviceaccount/token 
+  echo ${KUBERNETES_TOKEN} | base64 -d | tee /var/run/secrets/kubernetes.io/serviceaccount/token 
 } 
 
 covermode=${COVERMODE:-atomic}
