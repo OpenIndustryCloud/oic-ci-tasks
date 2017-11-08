@@ -23,8 +23,9 @@ profile="${coverdir}/cover.out"
 hash goveralls 2>/dev/null || go get github.com/mattn/goveralls
 hash godir 2>/dev/null || go get github.com/Masterminds/godir
 
-GOPATH="$(pwd)/function"
-cd ${GOPATH}
+GOPATH="${GOPATH}:$(pwd)/function"
+FNPATH="$(pwd)/function"
+cd ${FNPATH}
 
 generate_cover_data() {
   for d in $(godir) ; do
