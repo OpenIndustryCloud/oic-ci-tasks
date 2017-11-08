@@ -12,13 +12,13 @@ Octokit.create_ref(repo_name, "heads/#{test_branch}", sha)
 
 blob_sha = Octokit.contents(
   repo_name,
-  path: 'README.md',
+  path: 'LAST_MERGE.md',
   ref: test_branch
 ).sha
 
 Octokit.update_contents(
   repo_name,
-  'README.md',
+  'LAST_MERGE.md',
   'Updating content',
   blob_sha,
   "File content #{Time.now.to_s}",
