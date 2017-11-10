@@ -12,11 +12,12 @@ inputs:
 - name: function-src
 
 params: 
-  WORKFLOW_SRC: "workflow.wf.yaml"
+  WORKFLOW_SRC: workflow.wf.yaml
   ENVIRONMENT: dev
 
 run:
   path: task-src/workflow/build/build.sh
 
 outputs:
-- name: built-artifacts  
+- name: built-artifacts
+
