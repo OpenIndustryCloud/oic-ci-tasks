@@ -13,6 +13,8 @@ WF_FILE="$(find ${CURRENT_DIR} -name ${WORKFLOW_SRC})"
 
 sed -i s#ENVIRONMENT#${ENVIRONMENT}#g "${WF_FILE}"
 
-JSON_FILE=$(wfcli parse "${WF_FILE}" | grep "json")
+wfcli parse "${WF_FILE}"
+
+JSON_FILE=$( echo ${WF_FILE} | rev | cut -f2- -d'.' | rev).json
 
 mv "${JSON_FILE}" ${CURRENT_DIR}/built-artifacts/
