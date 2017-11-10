@@ -1,0 +1,22 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gcr.io/beta-180508/wfcli
+    tag: 'latest'
+
+inputs:
+- name: task-src
+- name: function-src
+
+params: 
+  WORKFLOW_SRC: "workflow.wf.yaml"
+  ENVIRONMENT: dev
+
+run:
+  path: task-src/workflow/build/build.sh
+
+outputs:
+- name: built-artifacts  
