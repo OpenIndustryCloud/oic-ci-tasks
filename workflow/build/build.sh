@@ -9,10 +9,10 @@
 set -eux 
 
 CURRENT_DIR="$(pwd)"
-WF_FILE="$(find . -name ${WORKFLOW_SRC})"
-
-echo ${WF_FILE} 
+WF_FILE="$(find ${CURRENT_DIR} -name ${WORKFLOW_SRC})"
 
 sed -i s#ENVIRONMENT#${ENVIRONMENT}#g "${WF_FILE}"
 
-wfcli parse "${WF_FILE}" | grep "json" | xargs -I {} mv {} ${CURRENT_DIR}/built-artifacts/
+JSON_FILE=$(wfcli parse "${WF_FILE}" | grep "json")
+
+mv "${JSON_FILE}" ${CURRENT_DIR}/built-artifacts/
