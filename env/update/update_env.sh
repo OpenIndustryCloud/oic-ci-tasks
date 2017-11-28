@@ -12,10 +12,10 @@ set -eux
 
 fission env update \
 	--name ${FUNCTION_ENVIRONMENT} \
-	--image ${FUNCTION_IMAGE} || \
+	--image ${FUNCTION_IMAGE}:$(cat version/${TAG}) || \
 	fission env create \
 		--name ${FUNCTION_ENVIRONMENT} \
-		--image ${FUNCTION_IMAGE}
+		--image ${FUNCTION_IMAGE}:$(cat version/${TAG})
 
 
 

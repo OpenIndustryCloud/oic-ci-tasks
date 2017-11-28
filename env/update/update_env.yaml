@@ -9,10 +9,14 @@ image_resource:
 
 inputs:
 - name: task-src
+- name: version
 
 params: 
   FUNCTION_ENVIRONMENT: staging
-  FUNCTION_IMAGE: fission/go-env:latest
+  # Image to load for the function
+  FUNCTION_IMAGE: fission/go-env
+  # Tag refers to the version number inside of the version folder
+  TAG: go-env-version
   # BUILDER_IMAGE: fission/go-env:builder
   FISSION_ROUTER: fissionrouter.default.svc.cluster.local
   FISSION_URL: python
