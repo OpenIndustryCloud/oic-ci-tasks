@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# First we check if sfdx is installed
+if hash sfdx 2>/dev/null; then
+	sfdx force:apex:test:run -c -r human
+	[ "$?" = "0" ] && exit 0 || exit 1
+else
+    echo "Please install SFDX first. See https://developer.salesforce.com/docs/atlas.en-us.210.0.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm"
+    exit 1
+fi
