@@ -1,6 +1,6 @@
 - id: sfdx-apex-test-run
   name: SFDX APEX Tests Run
   description: Runs SFDX APEX tests agains the folder with human report
-  entry: precommit/sfdx-apex-test-run
+  entry: pre-commit/sfdx-apex-test-run
   language: script
   types: [text]
