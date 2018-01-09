@@ -3,4 +3,5 @@
   description: Runs SFDX APEX tests agains the folder with human report
   entry: pre-commit/sfdx-apex-test-run
   language: script
-  types: [directory]
+  types: [text]
+  files: sfdx-project.json
