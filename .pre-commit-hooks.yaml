@@ -4,4 +4,4 @@
   entry: pre-commit/sfdx-apex-test-run
   language: script
   types: [text]
-  files: sfdx-project.json
+  pass_filenames: false
